@@ -1066,7 +1066,7 @@
                     text-align: center;
                     height: 100%;
                     cursor: pointer;
-                    background-color: #b5b5b5;
+                    background-color: #EBF0F0;
                 }
 
                 .` +
