@@ -12,6 +12,7 @@
       SELF = this;
       this.options = options;
       this.$el = options.container;
+      this.$title = options.title || 'Photo';
       this.images = options.images;
       this.activeImageIndex = 0;
       this.pod = this.$el.dataset.pod;
@@ -1387,7 +1388,7 @@
                             <div class="` +
         SELF.pod +
         `gallery_modal-header">
-                                <h4 style="color: #ffffff;margin: 14px;">Photos</h4>
+                                <h4 style="color: #ffffff;margin: 14px;">` + this.$title + `</h4>
                                 <div class="` +
         SELF.pod +
         `gallery_close-btn">
