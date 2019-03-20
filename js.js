@@ -1,1 +1,1481 @@
-!function(){var e,n,l,t,a,i,r,o,d,s,p,g,m,c,y=(e="",n="",l="",t="",a="",i="",r="",o=function(e,n){for(var l in n)e=e.replace(new RegExp("{"+l+"}","g"),n[l]);return e},d=function(e,n){if(null!==e){n.activeImageIndex!==parseInt(e.dataset.index)&&(n.$el.querySelector("."+n.pod+"gallery_modal-image-wrapper").children[0].style.opacity=.01),n.activeImageIndex=parseInt(e.dataset.index),setTimeout(function(){n.$el.querySelector("."+n.pod+"gallery_modal-image-wrapper").innerHTML=o(r,{src:n.images[n.activeImageIndex]})},180),setTimeout(function(){n.$el.querySelector("."+n.pod+"gallery_modal-image-wrapper").children[0].style.opacity=1},200),n.thumbsWrapper.querySelector("."+n.pod+"gallery_active").classList.remove(n.pod+"gallery_active"),e.parentNode.classList.add(n.pod+"gallery_active");var l=e.parentNode.offsetLeft,t=0;window.innerWidth>1.05*window.innerHeight?(l-=n.thumbsWrapper.offsetWidth/2-e.offsetWidth/2,t=112*n.images.length-12-1.05*window.innerHeight):(l-=window.innerWidth/2-e.offsetWidth/2,t=112*n.images.length+28-window.innerWidth),l<0&&(l=0),l>t&&(l=t),n.thumbsWrapper.scrollTo({top:0,left:l,behavior:"smooth"}),n.$el.querySelector("."+n.pod+"gallery_modal-slide-info").innerHTML=`${n.activeImageIndex+1} / ${n.images.length}`,0===n.activeImageIndex?(n.$el.querySelector("."+n.pod+"gallery_prev").style.opacity=.3,n.$el.querySelector("."+n.pod+"gallery_next").style.opacity=1):n.activeImageIndex===n.images.length-1?(n.$el.querySelector("."+n.pod+"gallery_prev").style.opacity=1,n.$el.querySelector("."+n.pod+"gallery_next").style.opacity=.3):(n.$el.querySelector("."+n.pod+"gallery_prev").style.opacity=1,n.$el.querySelector("."+n.pod+"gallery_next").style.opacity=1),1===n.images.length&&(n.$el.querySelector("."+n.pod+"gallery_prev").style.opacity=.3,n.$el.querySelector("."+n.pod+"gallery_next").style.opacity=.3)}},s=function(e,n){n.activeImageIndex=e;var l=n.$el.querySelector("."+n.pod+"gallery_modal-wrapper").classList;l.contains(n.pod+"gallery_hide")&&l.remove(n.pod+"gallery_hide"),c(n),n.$el.querySelector("."+n.pod+"gallery_modal-image-wrapper").innerHTML=o(r,{src:n.images[n.activeImageIndex]});var t=n.images.map(function(e,l){var t=parseInt(n.activeImageIndex)===l?n.pod+"gallery_active":"";return o(i,{className:t,src:e,index:l})}).join("");n.$el.querySelector("."+n.pod+"gallery_modal-slides").innerHTML=t;var a=n.thumbsWrapper.querySelector("."+n.pod+"gallery_active>img");d(a,n)},p=function(e,n,l){n.classList.add(l.pod+"gallery_loader");var t=new Image;t.src=e,t.onload=function(){setTimeout(function(){n.classList.remove(l.pod+"gallery_loader")},3e3)},t.onerror=function(){setTimeout(function(){n.classList.add(l.pod+"gallery_loader")},3e3)}},g=function(){SELF.$el.classList.add(SELF.pod+"gallery_wrapper"),SELF.$el.insertAdjacentHTML("beforeend",e),SELF.$el.querySelector("."+SELF.pod+"gallery_stage").innerHTML=o(n,{src:SELF.images[SELF.activeImageIndex],index:SELF.activeImageIndex}),p(SELF.images[SELF.activeImageIndex],SELF.$el.querySelector("."+SELF.pod+"gallery_stage"),SELF);var t="";SELF.images.length>=6&&(SELF.$el.querySelector("."+SELF.pod+"gallery_stage").insertAdjacentHTML("afterend",'<article class="'+SELF.pod+"gallery_slides "+SELF.pod+'gallery_slides1"></article><article class="'+SELF.pod+"gallery_slides "+SELF.pod+'gallery_slides2"></article>'),t=SELF.images.slice(1,4).map(function(e,n){return 3===++n&&SELF.images.length>4?o(l,{index:--n,count:SELF.images.length-2}):o(a,{src:e,index:n})}).join(" "),SELF.$el.querySelector("."+SELF.pod+"gallery_slides1").innerHTML=t,SELF.images.slice(1,4).forEach(function(e,n){n++,p(e,SELF.$el.querySelector("."+SELF.pod+"gallery_slides1 ."+SELF.pod+"gallery_slide-content:nth-child("+n+")"),SELF)}),t=SELF.images.slice(3,5).map(function(e,n){return 4===(n+=3)&&SELF.images.length>5?o(l,{index:n,count:SELF.images.length-4}):o(a,{src:e,index:n})}).join(""),SELF.$el.querySelector("."+SELF.pod+"gallery_slides2").innerHTML=t,SELF.images.slice(3,5).forEach(function(e,n){n++,p(e,SELF.$el.querySelector("."+SELF.pod+"gallery_slides2 ."+SELF.pod+"gallery_slide-content:nth-child("+n+")"),SELF)})),5===SELF.images.length&&(SELF.$el.querySelector("."+SELF.pod+"gallery_stage").insertAdjacentHTML("afterend",'<article class="'+SELF.pod+"gallery_slides "+SELF.pod+'gallery_slides1"></article><article class="'+SELF.pod+"gallery_slides "+SELF.pod+'gallery_slides2"></article>'),t=SELF.images.slice(1,4).map(function(e,n){return 3===++n&&SELF.images.length>4?o(l,{index:--n,count:SELF.images.length-2}):o(a,{src:e,index:n})}).join(" "),SELF.$el.querySelector("."+SELF.pod+"gallery_slides1").innerHTML=t,SELF.images.slice(1,4).forEach(function(e,n){n++,p(e,SELF.$el.querySelector("."+SELF.pod+"gallery_slides1 ."+SELF.pod+"gallery_slide-content:nth-child("+n+")"),SELF)}),t=SELF.images.slice(3,5).map(function(e,n){return n+=2,o(a,{src:e,index:++n})}).join(""),SELF.$el.querySelector("."+SELF.pod+"gallery_slides2").innerHTML=t,SELF.images.slice(3,5).forEach(function(e,n){n++,p(e,SELF.$el.querySelector("."+SELF.pod+"gallery_slides2 ."+SELF.pod+"gallery_slide-content:nth-child("+n+")"),SELF)})),4===SELF.images.length&&(SELF.$el.querySelector("."+SELF.pod+"gallery_stage").insertAdjacentHTML("afterend",'<article class="'+SELF.pod+"gallery_slides "+SELF.pod+'gallery_slides1"></article><article class="'+SELF.pod+"gallery_slides "+SELF.pod+'gallery_slides2"></article>'),t=SELF.images.slice(1,3).map(function(e,n){return 2===++n&&SELF.images.length>3?o(l,{index:n,count:SELF.images.length-2}):o(a,{src:e,index:n})}).join(" "),SELF.$el.querySelector("."+SELF.pod+"gallery_slides1").innerHTML=t,SELF.images.slice(1,3).forEach(function(e,n){n++,p(e,SELF.$el.querySelector("."+SELF.pod+"gallery_slides1 ."+SELF.pod+"gallery_slide-content:nth-child("+n+")"),SELF)}),t=SELF.images.slice(2,4).map(function(e,n){return o(a,{src:e,index:n+=2})}).join(""),SELF.$el.querySelector("."+SELF.pod+"gallery_slides2").innerHTML=t,SELF.images.slice(2,4).forEach(function(e,n){n++,p(e,SELF.$el.querySelector("."+SELF.pod+"gallery_slides2 ."+SELF.pod+"gallery_slide-content:nth-child("+n+")"),SELF)})),3===SELF.images.length&&(SELF.$el.querySelector("."+SELF.pod+"gallery_stage").insertAdjacentHTML("afterend",'<article class="'+SELF.pod+"gallery_slides "+SELF.pod+'gallery_slides1"></article>'),t=SELF.images.slice(1,3).map(function(e,n){return o(a,{src:e,index:++n})}).join(" "),SELF.$el.querySelector("."+SELF.pod+"gallery_slides1").innerHTML=t,SELF.images.slice(1,3).forEach(function(e,n){n++,p(e,SELF.$el.querySelector("."+SELF.pod+"gallery_slides1 ."+SELF.pod+"gallery_slide-content:nth-child("+n+")"),SELF)})),2===SELF.images.length&&(SELF.$el.querySelector("."+SELF.pod+"gallery_stage").insertAdjacentHTML("afterend",'<article class="'+SELF.pod+"gallery_slides "+SELF.pod+'gallery_slides1"></article>'),t=SELF.images.slice(1,2).map(function(e,n){return o(a,{src:e,index:++n})}).join(" "),SELF.$el.querySelector("."+SELF.pod+"gallery_slides1").innerHTML=t,SELF.images.slice(1,2).forEach(function(e,n){n++,p(e,SELF.$el.querySelector("."+SELF.pod+"gallery_slides1 ."+SELF.pod+"gallery_slide-content:nth-child("+n+")"),SELF)})),function(e){e.$el.addEventListener("click",function(n){if(n.target.matches("."+e.pod+"gallery_slide-img")||n.target.matches("."+e.pod+"gallery_view-btn")||n.target.matches("."+e.pod+"gallery_stage-img")){var l=n.target.dataset.index;s(l,e)}if(n.target.matches("."+e.pod+"gallery_modal-slide-img")&&d(n.target,e),n.target.matches("."+e.pod+"gallery_prev-thumb")&&e.activeImageIndex-1>=0){var t=e.thumbsWrapper.querySelector(`img[data-index='${e.activeImageIndex-1}']`);d(t,e)}if(n.target.matches("."+e.pod+"gallery_next-thumb")&&e.activeImageIndex+1<e.images.length){var a=e.thumbsWrapper.querySelector(`img[data-index='${e.activeImageIndex+1}']`);d(a,e)}(n.target.matches("."+e.pod+"gallery_close-modal")||n.target.matches("."+e.pod+"gallery_modal-header")||n.target.matches("."+e.pod+"gallery_modal-body")||n.target.matches("."+e.pod+"gallery_modal-footer"))&&e.$el.querySelector("."+e.pod+"gallery_modal-wrapper").classList.add(e.pod+"gallery_hide")},!1),document.addEventListener("keydown",function(n){var l=n.keyCode?n.keyCode:n.which;if(27==l&&(e.thumbsWrapper.style.transform="none",e.$el.querySelector("."+e.pod+"gallery_modal-wrapper").classList.add(e.pod+"gallery_hide")),37==l&&e.activeImageIndex-1>=0){var t=e.thumbsWrapper.querySelector(`img[data-index='${e.activeImageIndex-1}']`);d(t,e)}if(39==l&&e.activeImageIndex+1<e.images.length){var a=e.thumbsWrapper.querySelector(`img[data-index='${e.activeImageIndex+1}']`);d(a,e)}});var n,l;e.$el.querySelector("."+e.pod+"gallery_modal-image-wrapper").addEventListener("touchstart",function(e){var l=e.changedTouches[0];dist=0,n=l.pageX,(new Date).getTime(),e.preventDefault()},!1),e.$el.querySelector("."+e.pod+"gallery_modal-image-wrapper").addEventListener("touchmove",function(e){e.preventDefault()},!1),e.$el.querySelector("."+e.pod+"gallery_modal-image-wrapper").addEventListener("touchend",function(t){var a=t.changedTouches[0];if(l=a.pageX-n,Math.abs(l)>=30)if("left"==(l<0?"left":"right")){if(e.activeImageIndex+1<e.images.length){var i=e.thumbsWrapper.querySelector(`img[data-index='${e.activeImageIndex+1}']`);d(i,e)}}else if(e.activeImageIndex-1>=0){var r=e.thumbsWrapper.querySelector(`img[data-index='${e.activeImageIndex-1}']`);d(r,e)}t.preventDefault()},!1)}(SELF)},m=function(e){var n=document.createElement("style");n.type="text/css",n.innerHTML="\n                      ."+e.pod+"gallery_wrapper {\n                          display: flex;\n                          overflow: hidden;\n                          border: 1px solid #ffffff !important;\n                          background-color: #E8EEEE;\n                      }\n\n                      ."+e.pod+"gallery_wrapper > * {\n                          font-size: 16px;\n                      }\n\n                      ."+e.pod+"gallery_stage {\n                          width: 100%;\n                          height: 100%;\n                          overflow: hidden;\n                      }\n\n                      ."+e.pod+"gallery_stage {\n                          display: flex !important;\n                          overflow: hidden !important;\n                          align-items: center !important;\n                          justify-content: center !important;\n                          vertical-align: middle !important;\n                          position: relative !important;\n                          width: 67%;\n                          height: 294.6666666666667px !important;\n                      }\n\n                      ."+e.pod+"gallery_stage-img {\n                          position: absolute !important;\n                          background-size: cover !important;\n                          width: 100% !important;\n                          height: 100% !important;\n                          transform: scale(1) !important;\n                          background-repeat: no-repeat !important;\n                          background-position: center center !important;\n                          transition: all 450ms cubic-bezier(0.645, 0.045, 0.355, 1) 0s !important;\n                          cursor: pointer;\n                          border: 1px solid #ffffff !important;\n                      }\n\n                      ."+e.pod+"gallery_stage-img:hover {\n                          transform: scale(1.05) !important;\n                      }\n\n                      #gallery-1 ."+e.pod+"gallery_stage {\n                          width: 100% !important;\n                      }\n\n                      ."+e.pod+"gallery_slides {\n                          flex_direction: column !important;\n                          position: relative !important;\n                          width: 33% !important;\n                          overflow: hidden !important;\n                          height: 294.6666666666667px !important;\n                      }\n\n                      ."+e.pod+"gallery_lides1 {\n                          display: block;\n                      }\n\n                      ."+e.pod+"gallery_slides2 {\n                          display: none;\n                      }\n\n                      ."+e.pod+"gallery_slide-content {\n                          display: flex !important;\n                          overflow: hidden !important;\n                          align-items: center !important;\n                          justify-content: center !important;\n                          vertical-align: middle !important;\n                          position: relative !important;\n                          height: 50% !important;\n                          border: 1px solid #ffffff !important;\n                      }\n\n                      #gallery-4 ."+e.pod+"gallery_slides1 ."+e.pod+"gallery_slide-content {\n                          height: 50% !important;\n                      }\n\n                      #gallery-2 ."+e.pod+"gallery_slides ."+e.pod+"gallery_slide-content {\n                          height: 100% !important;\n                      }\n\n                      #gallery-more ."+e.pod+"gallery_slides1 ."+e.pod+"gallery_slide-content:nth-child(2),\n                      #gallery-5 ."+e.pod+"gallery_slides1 ."+e.pod+"gallery_slide-content:nth-child(2) {\n                          display: none !important;\n                      }\n\n                      #gallery-more ."+e.pod+"gallery_slides1 ."+e.pod+"gallery_slide-content:nth-child(3),\n                      #gallery-5 ."+e.pod+"gallery_slides1 ."+e.pod+"gallery_slide-content:nth-child(3),\n                      #gallery-4 ."+e.pod+"gallery_slides1 ."+e.pod+"gallery_slide-content:nth-child(2) {\n                          display: block !important;\n                      }\n\n                      ."+e.pod+"gallery_slide-img {\n                          position: absolute !important;\n                          background-size: cover !important;\n                          width: 100% !important;\n                          height: 100% !important;\n                          transform: scale(1) !important;\n                          background-repeat: no-repeat !important;\n                          background-position: center center !important;\n                          transition: all 450ms cubic-bezier(0.645, 0.045, 0.355, 1) 0s !important;\n                          cursor: pointer;\n                      }\n\n                      ."+e.pod+"gallery_slide-img:hover {\n                          transform: scale(1.05) !important;\n                      }\n\n                      ."+e.pod+"gallery_modal-content {\n                          background: rgb(255, 255, 255) !important;\n                          position: fixed !important;\n                          top: 100vh !important;\n                          right: 0px !important;\n                          bottom: 0px !important;\n                          left: 0px !important;\n                          z-index: 2;\n                      }\n\n                      ."+e.pod+"gallery_modal-wrapper {\n                          position: fixed;\n                          z-index: 2000;\n                          top: 0;\n                          right: 0;\n                          bottom: 0;\n                          left: 0;\n                          background-color: rgba(0, 0, 0, 0.85);\n                          display: flex;\n                          flex-direction: column;\n                          user-select: none;\n                          -webkit-user-select: none;\n                      }\n\n                      ."+e.pod+"gallery_hide {\n                          display: none;\n                      }\n\n                      ."+e.pod+"gallery_modal-header {\n                          position: relative;\n                          background-color: #000000;\n                          padding: 0;\n                      }\n\n                      ."+e.pod+"gallery_modal-header h4 {\n                          display: block;\n                      }\n\n                      ."+e.pod+"gallery_close-btn {\n                          position: absolute;\n                          padding: 0;\n                          right: 16px;\n                          top: 16px;\n                          z-index: 1;\n                      }\n\n                      ."+e.pod+"gallery_close-btn button {\n                          background-color: transparent;\n                          border: none;\n                          padding: 0;\n                          cursor: pointer;\n                      }\n\n                      ."+e.pod+"gallery_modal-body {\n                          width: 100% !important;\n                          margin: 0px auto !important;\n                          position: relative;\n                          overflow: hidden;\n                          height: 80vh;\n                          display: flex;\n                          align-items: center;\n                          padding: 0 20px;\n                      }\n\n                      ."+e.pod+"gallery_modal-image-wrapper {\n                          width: 100%;\n                          max-width: 105vh;\n                          margin: 0 auto;\n                          display: flex;\n                          overflow: hidden;\n                      }\n\n                      ."+e.pod+"gallery_modal-img {\n                          object-fit: fill;\n                          width: 100%;\n                          max-width: 105vh;\n                          height: 100%;\n                          background-size: cover !important;\n                          z-index: 1 !important;\n                          transform: translateX(0px) scale(1);\n                          opacity: 0.01;\n                          background-repeat: no-repeat !important;\n                          background-position: center center !important;\n                          transition: opacity 180ms ease-out 0s, transform 150ms ease-out 0s;\n                          border-radius: 3px;\n                      }\n\n                      ."+e.pod+"gallery_modal-slide-img {\n                          object-fit: fill;\n                          width: 100%;\n                          height: 100%;\n                          border-radius: 5px;\n                      }\n\n                      ."+e.pod+"gallery_prev {\n                          display: flex;\n                          cursor: pointer !important;\n                          position: absolute !important;\n                          top: 50% !important;\n                          transform: translateY(-50%);\n                          z-index: 100 !important;\n                          font-size: 0.5em !important;\n                          left: 25px !important;\n                          background: none !important;\n                          border-width: 0px !important;\n                          border-style: initial !important;\n                          border-color: initial !important;\n                          border-image: initial !important;\n                          align-items: center;\n                      }\n\n                      ."+e.pod+"gallery_next {\n                          display: flex;\n                          cursor: pointer !important;\n                          position: absolute !important;\n                          top: 50% !important;\n                          transform: translateY(-50%);\n                          z-index: 100 !important;\n                          font-size: 0.5em !important;\n                          right: 25px !important;\n                          background: none !important;\n                          border-width: 0px !important;\n                          border-style: initial !important;\n                          border-color: initial !important;\n                          border-image: initial !important;\n                          align-items: center;\n                      }\n\n                      ."+e.pod+"gallery_slide-img:hover {\n                          transform: scale(1.1);\n                          transition: -ms-transform 450ms cubic-bezier(0.645, 0.045, 0.355, 1) 0s,\n                          -webkit-transform 450ms cubic-bezier(0.645, 0.045, 0.355, 1) 0s,\n                          transform 450ms cubic-bezier(0.645, 0.045, 0.355, 1) 0s;\n                      }\n\n                      ."+e.pod+"gallery_modal-footer {\n                          position: relative;\n                          overflow: hidden;\n                          width: 100% !important;\n                          padding: 0 20px;\n                      }\n\n                      ."+e.pod+"gallery_modal-slide-info {\n                          color: white;\n                          display: none;\n                          max-width: 105vh;\n                          margin: 0 auto;\n                      }\n\n                      ."+e.pod+"gallery_modal-slides {\n                          -webkit-overflow-scrolling: touch;\n                          position: relative;\n                          display: block;\n                          white-space: nowrap;\n                          padding: 0;\n                          transition: -ms-transform 0.3s ease-out 0s, -webkit-transform 0.3s ease-out 0s,\n                          transform 0.3s ease-out 0s !important;\n                          max-width: 105vh;\n                          overflow-x: auto;\n                          margin: 15px auto;\n                      }\n\n                      ."+e.pod+"gallery_modal-slides::-webkit-scrollbar {\n                          width: 0;\n                      }\n\n                      ."+e.pod+"gallery_modal-slide {\n                          width: 100px;\n                          overflow: hidden;\n                          display: inline-flex;\n                      }\n\n                      ."+e.pod+"gallery_modal-slide:hover {\n                          cursor: pointer;\n                          opacity: 1;\n                      }\n\n                      ."+e.pod+"gallery_active {\n                          opacity: 1 !important;\n                          position: relative;\n                      }\n\n                      ."+e.pod+"gallery_active img {\n                          border: 1px solid white;\n                      }\n\n                      ."+e.pod+"gallery_view-more {\n                          display: flex;\n                          align-items: center;\n                          justify-content: center;\n                          text-align: center;\n                          height: 100%;\n                          cursor: pointer;\n                          background-color: #EBF0F0;\n                      }\n\n                      ."+e.pod+"gallery_view-more:hover {\n                          transform: none;\n                      }\n\n                      @media (min-width: 1200px) {\n                          ."+e.pod+"gallery_slides {\n                              width: 25% !important;\n                          }\n                      }\n\n                      @media (min-width: 1128px) {\n                          ."+e.pod+"gallery_prev, ."+e.pod+"gallery_next {\n                              font-size: medium !important;\n                          }\n                      }\n\n                      @media (min-height: 700px) {\n                          ."+e.pod+"gallery_stage {\n                              height:294.6666666666667px !important;\n                          }\n                      }\n\n                      @media (min-height: 850px) {\n                          ."+e.pod+"gallery_stage {\n                              height:394.6666666666667px !important;\n                          }\n                      }\n\n                      @media (min-height: 1000px) {\n                          ."+e.pod+"gallery_stage {\n                              height:494.6666666666667px !important;\n                          }\n                      }\n\n                      @media (min-width: 744px) {\n                          @media (min-height: 700px) {\n                              ."+e.pod+"gallery_stage {\n                                  height:353.6px !important;\n                              }\n                          }\n\n                          @media (min-height: 850px) {\n                              ."+e.pod+"gallery_stage {\n                                  height:473.6px !important;\n                              }\n                          }\n\n                          @media (min-height: 1000px) {\n                              ."+e.pod+"gallery_stage {\n                                  height:593.6px !important;\n                              }\n                          }\n                      }\n\n                      @media (min-width: 800px) {\n                          ."+e.pod+"gallery_stage {\n                              width:50% !important;\n                          }\n\n                          @media (min-height: 700px) {\n                              ."+e.pod+"gallery_stage {\n                                  height:360px !important;\n                              }\n                          }\n\n                          @media (min-height: 850px) {\n                              ."+e.pod+"gallery_stage {\n                                  height:592px !important;\n                              }\n                          }\n\n                          @media (min-height: 1000px) {\n                              .stage {\n                                  height:742px !important;\n                              }\n                          }\n                      }\n\n                      @media (min-height: 700px) {\n                          ."+e.pod+"gallery_slides {\n                              height:294.6666666666667px !important;\n                          }\n                      }\n\n                      @media (min-height: 850px) {\n                          ."+e.pod+"gallery_slides {\n                              height:394.6666666666667px !important;\n                          }\n                      }\n\n                      @media (min-height: 1000px) {\n                          ."+e.pod+"gallery_slides {\n                              height:494.6666666666667px !important;\n                          }\n                      }\n\n                      @media (min-width: 744px) {\n                          @media (min-height: 700px) {\n                              ."+e.pod+"gallery_slides {\n                                  height:353.6px !important;\n                              }\n                          }\n\n                          @media (min-height: 850px) {\n                              ."+e.pod+"gallery_slides {\n                                  height:473.6px !important;\n                              }\n                          }\n\n                          @media (min-height: 1000px) {\n                              ."+e.pod+"gallery_slides {\n                                  height:593.6px !important;\n                              }\n                          }\n                      }\n\n                      @media (min-width: 800px) {\n                          ."+e.pod+"gallery_slides {\n                              width: 25% !important;\n                          }\n\n                          @media (min-height: 700px) {\n                              ."+e.pod+"gallery_slides {\n                                  height:360px !important;\n                              }\n                          }\n\n                          @media (min-height: 850px) {\n                              ."+e.pod+"gallery_slides {\n                                  height:592px !important;\n                              }\n                          }\n\n                          @media (min-height: 1000px) {\n                              ."+e.pod+"gallery_slides {\n                                  height:742px !important;\n                              }\n                          }\n                      }\n\n                      @media (min-width: 800px) {\n                          #gallery-more ."+e.pod+"gallery_slides1 ."+e.pod+"gallery_slide-content:nth-child(2),\n                          #gallery-5 ."+e.pod+"gallery_slides1 ."+e.pod+"gallery_slide-content:nth-child(2){\n                              display: block !important;\n                          }\n\n                          #gallery-more ."+e.pod+"gallery_slides1 ."+e.pod+"gallery_slide-content:nth-child(3),\n                          #gallery-5 ."+e.pod+"gallery_slides1 ."+e.pod+"gallery_slide-content:nth-child(3),\n                          #gallery-4 ."+e.pod+"gallery_slides1 ."+e.pod+"gallery_slide-content:nth-child(2) {\n                              display: none !important;\n                          }\n\n                          #gallery-4 ."+e.pod+"gallery_slides1 ."+e.pod+"gallery_slide-content {\n                              height: 100% !important;\n                          }\n\n                          #gallery-3 ."+e.pod+"gallery_stage {\n                              width: 60% !important;\n                          }\n\n                          #gallery-3 ."+e.pod+"gallery_slides1 {\n                              width: 40% !important;\n                          }\n\n                          #gallery-2 ."+e.pod+"gallery_stage {\n                              width: 70% !important;\n                          }\n\n                          #gallery-2 ."+e.pod+"gallery_slides {\n                              width: 30% !important;\n                          }\n                          ."+e.pod+"gallery_modal-header {\n                              background-color: transparent !important;\n                              padding: 32px;\n                          }\n                          ."+e.pod+"gallery_modal-header h4 {\n                              display: none !important;\n                          }\n                          ."+e.pod+"gallery_slides2 {\n                              display: block !important;\n                          }\n                          ."+e.pod+"gallery_modal-slide {\n                              opacity: 0.5;\n                          }\n                          ."+e.pod+"gallery_modal-slide-info {\n                              display: block !important;\n                          }\n                      }",document.getElementsByTagName("head")[0].appendChild(n)},c=function(o){e='<aside class="'+o.pod+'gallery_stage">\n                          <div class="'+o.pod+'gallery_stage-img"></div>\n                      </aside>',n='<div class="'+o.pod+'gallery_stage-img" style="background-image: url({src})" data-index="0"></div>',l='\n                          <div class="'+o.pod+'gallery_slide-content">\n                             <div class="'+o.pod+"gallery_slide-img "+o.pod+'gallery_view-more" data-index="{index}">View {count} More</div>\n                          </div>',t='<div class="'+o.pod+'gallery_modal-content">\n                              <div class="'+o.pod+"gallery_modal-wrapper "+o.pod+'gallery_hide">\n                                  <div class="'+o.pod+'gallery_modal-header">\n                                      <h4 style="color: #ffffff;margin: 14px;">'+o.title+'</h4>\n                                      <div class="'+o.pod+'gallery_close-btn">\n                                          <button type="button">\n                                              <svg class="'+o.pod+'gallery_close-modal" viewBox="0 0 24 24" role="img" aria-label="Close" focusable="false" style="height: 12px; width: 12px; display: block; fill: rgb(255, 255, 255);">\n                                                  <path class="'+o.pod+'gallery_close-modal" d="m23.25 24c-.19 0-.38-.07-.53-.22l-10.72-10.72-10.72 10.72c-.29.29-.77.29-1.06 0s-.29-.77 0-1.06l10.72-10.72-10.72-10.72c-.29-.29-.29-.77 0-1.06s.77-.29 1.06 0l10.72 10.72 10.72-10.72c.29-.29.77-.29 1.06 0s .29.77 0 1.06l-10.72 10.72 10.72 10.72c.29.29.29.77 0 1.06-.15.15-.34.22-.53.22" fill-rule="evenodd"></path>\n                                              </svg>\n                                          </button>\n                                      </div>\n                                  </div>\n                                  <div class="'+o.pod+'gallery_modal-body">\n                                      <div class="'+o.pod+'gallery_modal-image-wrapper">\n                                          <img class="'+o.pod+'gallery_modal-img" src="https://picsum.photos/600/400?image=0"/>\n                                      </div>\n                                      <div class="'+o.pod+'gallery_prev">\n                                          <svg class="'+o.pod+'gallery_prev-thumb" viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false" style="height: 20px; width: 20px; fill: rgb(255, 255, 255);">\n                                              <path class="'+o.pod+'gallery_prev-thumb" d="m13.7 16.29a1 1 0 1 1 -1.42 1.41l-8-8a1 1 0 0 1 0-1.41l8-8a1 1 0 1 1 1.42 1.41l-7.29 7.29z"fill-rule="evenodd"></path>\n                                          </svg>\n                                      </div>\n                                      <div class="'+o.pod+'gallery_next">\n                                          <svg class="'+o.pod+'gallery_next-thumb" viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false" style="height: 20px; width: 20px; fill: rgb(255, 255, 255);">\n                                              <path class="'+o.pod+'gallery_next-thumb" d="m4.29 1.71a1 1 0 1 1 1.42-1.41l8 8a1 1 0 0 1 0 1.41l-8 8a1 1 0 1 1 -1.42-1.41l7.29-7.29z" fill-rule="evenodd"></path>\n                                          </svg>\n                                      </div>\n                                  </div>\n                                  <div class="'+o.pod+'gallery_modal-footer">\n                                      <div class="'+o.pod+'gallery_modal-slide-info"></div>\n                                      <ul class="'+o.pod+'gallery_modal-slides"></ul>\n                                  </div>\n                              </div>\n                          </div>',a='<div class="'+o.pod+'gallery_slide-content"><div class="'+o.pod+'gallery_slide-img" style="background-image: url({src})" data-index="{index}"/></div></div>',i='\n                          <li class="'+o.pod+'gallery_modal-slide {className}">\n                              <img class="'+o.pod+'gallery_modal-slide-img" src="{src}" data-index={index} />\n                          </li>',r='<img class="'+o.pod+'gallery_modal-img" src="{src}" style="opacity: 0.01"/>'},function(e){SELF=this,this.options=e,this.$el=e.container,this.title=e.title||"Photo",this.images=e.images,this.activeImageIndex=0,this.pod=this.$el.dataset.pod,""!==this.pod&&(this.pod+="-"),m(SELF),c(SELF),this.$el.insertAdjacentHTML("beforeend",t),this.thumbsWrapper=this.$el.querySelector("."+SELF.pod+"gallery_modal-slides"),g()});"undefined"!=typeof module&&void 0!==module.exports?module.exports=y:window.Gallery=y}();
+    (function() {
+      var Gallery = (function() {
+        var stageImageContentTemplate = '';
+        var stageImageTemplate = '';
+        var viewMoreTemplate = '';
+        var modalTemplate = '';
+        var slideTemplate = '';
+        var modalSlideTemplate = '';
+        var modalImageTemplate = '';
+
+        var Gallery = function(options) {
+          SELF = this;
+          this.options = options;
+          this.$el = options.container;
+          this.title = options.title || 'Photo';
+          this.images = options.images;
+          this.activeImageIndex = 0;
+          this.pod = this.$el.dataset.pod;
+          if (this.pod !== '') this.pod += '-';
+          init_style(SELF);
+          init_template(SELF);
+          this.$el.insertAdjacentHTML('beforeend', modalTemplate);
+          this.thumbsWrapper = this.$el.querySelector(
+            '.' + SELF.pod + 'gallery_modal-slides'
+          );
+          init();
+        };
+
+        // simple template engine
+        var templateEngine = function(template, data) {
+          for (var key in data) {
+            template = template.replace(
+              new RegExp('{' + key + '}', 'g'),
+              data[key]
+            );
+          }
+          return template;
+        };
+
+        // bind events once, catch all
+        var bindEvents = function(SELF) {
+          SELF.$el.addEventListener(
+            'click',
+            function(event) {
+              // click gallery, open lightbox
+              if (
+                event.target.matches('.' + SELF.pod + 'gallery_slide-img') ||
+                event.target.matches('.' + SELF.pod + 'gallery_view-btn') ||
+                event.target.matches('.' + SELF.pod + 'gallery_stage-img')
+              ) {
+                var index = event.target.dataset.index;
+                showLightBox(index, SELF);
+              }
+
+              // click lightbox thumb, highlight it
+              if (
+                event.target.matches('.' + SELF.pod + 'gallery_modal-slide-img')
+              ) {
+                highlightThumb(event.target, SELF);
+              }
+
+              // prev thumb
+              if (event.target.matches('.' + SELF.pod + 'gallery_prev-thumb')) {
+                if (SELF.activeImageIndex - 1 >= 0) {
+                  var prevThumb = SELF.thumbsWrapper.querySelector(
+                    `img[data-index='${SELF.activeImageIndex - 1}']`
+                  );
+                  highlightThumb(prevThumb, SELF);
+                }
+              }
+
+              // next thumb
+              if (event.target.matches('.' + SELF.pod + 'gallery_next-thumb')) {
+                if (SELF.activeImageIndex + 1 < SELF.images.length) {
+                  var nextThumb = SELF.thumbsWrapper.querySelector(
+                    `img[data-index='${SELF.activeImageIndex + 1}']`
+                  );
+                  highlightThumb(nextThumb, SELF);
+                }
+              }
+
+              // close lightbox
+              if (
+                event.target.matches('.' + SELF.pod + 'gallery_close-modal') ||
+                event.target.matches('.' + SELF.pod + 'gallery_modal-header') ||
+                event.target.matches('.' + SELF.pod + 'gallery_modal-body') ||
+                event.target.matches('.' + SELF.pod + 'gallery_modal-footer')
+              ) {
+                SELF.$el
+                  .querySelector('.' + SELF.pod + 'gallery_modal-wrapper')
+                  .classList.add('' + SELF.pod + 'gallery_hide');
+              }
+            },
+            false
+          );
+
+          document.addEventListener('keydown', function(event) {
+            var key = event.keyCode ? event.keyCode : event.which;
+            if (key == 27) {
+              SELF.thumbsWrapper.style.transform = 'none';
+              SELF.$el
+                .querySelector('.' + SELF.pod + 'gallery_modal-wrapper')
+                .classList.add('' + SELF.pod + 'gallery_hide');
+            }
+            if (key == 37) {
+              if (SELF.activeImageIndex - 1 >= 0) {
+                var prevThumb = SELF.thumbsWrapper.querySelector(
+                  `img[data-index='${SELF.activeImageIndex - 1}']`
+                );
+                highlightThumb(prevThumb, SELF);
+              }
+            }
+            if (key == 39) {
+              if (SELF.activeImageIndex + 1 < SELF.images.length) {
+                var nextThumb = SELF.thumbsWrapper.querySelector(
+                  `img[data-index='${SELF.activeImageIndex + 1}']`
+                );
+                highlightThumb(nextThumb, SELF);
+              }
+            }
+          });
+
+          var swipedir,
+            startX,
+            distX,
+            threshold = 30,
+            startTime;
+
+          SELF.$el
+            .querySelector('.' + SELF.pod + 'gallery_modal-image-wrapper')
+            .addEventListener(
+              'touchstart',
+              function(e) {
+                var touchobj = e.changedTouches[0];
+                swipedir = 'none';
+                dist = 0;
+                startX = touchobj.pageX;
+                startTime = new Date().getTime();
+                e.preventDefault();
+              },
+              false
+            );
+
+          SELF.$el
+            .querySelector('.' + SELF.pod + 'gallery_modal-image-wrapper')
+            .addEventListener(
+              'touchmove',
+              function(e) {
+                e.preventDefault();
+              },
+              false
+            );
+
+          SELF.$el
+            .querySelector('.' + SELF.pod + 'gallery_modal-image-wrapper')
+            .addEventListener(
+              'touchend',
+              function(e) {
+                var touchobj = e.changedTouches[0];
+                distX = touchobj.pageX - startX;
+                if (Math.abs(distX) >= threshold) {
+                  swipedir = distX < 0 ? 'left' : 'right';
+                  if (swipedir === 'left') {
+                    if (SELF.activeImageIndex + 1 < SELF.images.length) {
+                      var nextThumb = SELF.thumbsWrapper.querySelector(
+                        `img[data-index='${SELF.activeImageIndex + 1}']`
+                      );
+                      highlightThumb(nextThumb, SELF);
+                    }
+                  } else {
+                    if (SELF.activeImageIndex - 1 >= 0) {
+                      var prevThumb = SELF.thumbsWrapper.querySelector(
+                        `img[data-index='${SELF.activeImageIndex - 1}']`
+                      );
+                      highlightThumb(prevThumb, SELF);
+                    }
+                  }
+                }
+                e.preventDefault();
+              },
+              false
+            );
+        };
+
+        // hightlight specified thumb
+        var highlightThumb = function(thumb, SELF) {
+          if (thumb === null) return;
+
+          if (SELF.activeImageIndex !== parseInt(thumb.dataset.index)) {
+            SELF.$el.querySelector(
+              '.' + SELF.pod + 'gallery_modal-image-wrapper'
+            ).children[0].style.opacity = 0.01;
+          }
+          SELF.activeImageIndex = parseInt(thumb.dataset.index);
+          setTimeout(function() {
+            SELF.$el.querySelector(
+              '.' + SELF.pod + 'gallery_modal-image-wrapper'
+            ).innerHTML = templateEngine(modalImageTemplate, {
+              src: SELF.images[SELF.activeImageIndex],
+            });
+          }, 180);
+          setTimeout(function() {
+            SELF.$el.querySelector(
+              '.' + SELF.pod + 'gallery_modal-image-wrapper'
+            ).children[0].style.opacity = 1;
+          }, 200);
+          SELF.thumbsWrapper
+            .querySelector('.' + SELF.pod + 'gallery_active')
+            .classList.remove('' + SELF.pod + 'gallery_active');
+          thumb.parentNode.classList.add('' + SELF.pod + 'gallery_active');
+
+          var left = thumb.parentNode.offsetLeft;
+          var right = 0;
+          if (window.innerWidth > window.innerHeight * 1.05) {
+            left -= SELF.thumbsWrapper.offsetWidth / 2 - thumb.offsetWidth / 2;
+            right = 112 * SELF.images.length - 12 - window.innerHeight * 1.05;
+          } else {
+            left -= window.innerWidth / 2 - thumb.offsetWidth / 2;
+            right = 112 * SELF.images.length + 28 - window.innerWidth;
+          }
+          if (left < 0) left = 0;
+          if (left > right) left = right;
+
+          SELF.thumbsWrapper.scrollTo({ top: 0, left: left, behavior: 'smooth' });
+
+          SELF.$el.querySelector(
+            '.' + SELF.pod + 'gallery_modal-slide-info'
+          ).innerHTML = `${SELF.activeImageIndex + 1} / ${SELF.images.length}`;
+
+          if (SELF.activeImageIndex === 0) {
+            SELF.$el.querySelector(
+              '.' + SELF.pod + 'gallery_prev'
+            ).style.opacity = 0.3;
+            SELF.$el.querySelector(
+              '.' + SELF.pod + 'gallery_next'
+            ).style.opacity = 1;
+          } else if (SELF.activeImageIndex === SELF.images.length - 1) {
+            SELF.$el.querySelector(
+              '.' + SELF.pod + 'gallery_prev'
+            ).style.opacity = 1;
+            SELF.$el.querySelector(
+              '.' + SELF.pod + 'gallery_next'
+            ).style.opacity = 0.3;
+          } else {
+            SELF.$el.querySelector(
+              '.' + SELF.pod + 'gallery_prev'
+            ).style.opacity = 1;
+            SELF.$el.querySelector(
+              '.' + SELF.pod + 'gallery_next'
+            ).style.opacity = 1;
+          }
+
+          if (SELF.images.length === 1) {
+            SELF.$el.querySelector(
+              '.' + SELF.pod + 'gallery_prev'
+            ).style.opacity = 0.3;
+            SELF.$el.querySelector(
+              '.' + SELF.pod + 'gallery_next'
+            ).style.opacity = 0.3;
+          }
+        };
+
+        // open lightbox
+        var showLightBox = function(index, SELF) {
+          SELF.activeImageIndex = index;
+          var classList = SELF.$el.querySelector(
+            '.' + SELF.pod + 'gallery_modal-wrapper'
+          ).classList;
+          if (classList.contains('' + SELF.pod + 'gallery_hide')) {
+            classList.remove('' + SELF.pod + 'gallery_hide');
+          }
+          init_template(SELF);
+          SELF.$el.querySelector(
+            '.' + SELF.pod + 'gallery_modal-image-wrapper'
+          ).innerHTML = templateEngine(modalImageTemplate, {
+            src: SELF.images[SELF.activeImageIndex],
+          });
+
+          // render modal slides
+          var slidesHtml = SELF.images
+            .map(function(image, index) {
+              var className =
+                parseInt(SELF.activeImageIndex) === index
+                  ? '' + SELF.pod + 'gallery_active'
+                  : '';
+
+              return templateEngine(modalSlideTemplate, {
+                className,
+                src: image,
+                index,
+              });
+            })
+            .join('');
+          SELF.$el.querySelector(
+            '.' + SELF.pod + 'gallery_modal-slides'
+          ).innerHTML = slidesHtml;
+          var activeThumb = SELF.thumbsWrapper.querySelector(
+            '.' + SELF.pod + 'gallery_active>img'
+          );
+
+          highlightThumb(activeThumb, SELF);
+        };
+
+        var imageLoad = function(URL, selector, SELF) {
+          selector.classList.add(SELF.pod + 'gallery_loader');
+          var imageLoder = new Image();
+          imageLoder.src = URL;
+          imageLoder.onload = function() {
+            setTimeout(function() {
+              selector.classList.remove(SELF.pod + 'gallery_loader');
+            }, 3000);
+          };
+          imageLoder.onerror = function() {
+            setTimeout(function() {
+              selector.classList.add(SELF.pod + 'gallery_loader');
+            }, 3000);
+          };
+        };
+
+        // bootstrap the gallery
+        var init = function() {
+          // render active image
+          SELF.$el.classList.add('' + SELF.pod + 'gallery_wrapper');
+          SELF.$el.insertAdjacentHTML('beforeend', stageImageContentTemplate);
+          SELF.$el.querySelector(
+            '.' + SELF.pod + 'gallery_stage'
+          ).innerHTML = templateEngine(stageImageTemplate, {
+            src: SELF.images[SELF.activeImageIndex],
+            index: SELF.activeImageIndex,
+          });
+
+          imageLoad(
+            SELF.images[SELF.activeImageIndex],
+            SELF.$el.querySelector('.' + SELF.pod + 'gallery_stage'),
+            SELF
+          );
+
+          var slidesHtml = '';
+          if (SELF.images.length >= 6) {
+            SELF.$el
+              .querySelector('.' + SELF.pod + 'gallery_stage')
+              .insertAdjacentHTML(
+                'afterend',
+                '<article class="' +
+                  SELF.pod +
+                  'gallery_slides ' +
+                  SELF.pod +
+                  'gallery_slides1"></article>' +
+                  '<article class="' +
+                  SELF.pod +
+                  'gallery_slides ' +
+                  SELF.pod +
+                  'gallery_slides2"></article>'
+              );
+
+            slidesHtml = SELF.images
+              .slice(1, 4)
+              .map(function(image, index) {
+                index++;
+                if (index === 3 && SELF.images.length > 4) {
+                  index--;
+                  return templateEngine(viewMoreTemplate, {
+                    index,
+                    count: SELF.images.length - 2,
+                  });
+                }
+                return templateEngine(slideTemplate, { src: image, index });
+              })
+              .join(' ');
+            SELF.$el.querySelector(
+              '.' + SELF.pod + 'gallery_slides1'
+            ).innerHTML = slidesHtml;
+            SELF.images.slice(1, 4).forEach(function(image, index) {
+              index++;
+              imageLoad(
+                image,
+                SELF.$el.querySelector(
+                  '.' +
+                    SELF.pod +
+                    'gallery_slides1 .' +
+                    SELF.pod +
+                    'gallery_slide-content:nth-child(' +
+                    index +
+                    ')'
+                ),
+                SELF
+              );
+            });
+
+            slidesHtml = SELF.images
+              .slice(3, 5)
+              .map(function(image, index) {
+                index = index + 3;
+                if (index === 4 && SELF.images.length > 5) {
+                  return templateEngine(viewMoreTemplate, {
+                    index,
+                    count: SELF.images.length - 4,
+                  });
+                }
+                return templateEngine(slideTemplate, { src: image, index });
+              })
+              .join('');
+            SELF.$el.querySelector(
+              '.' + SELF.pod + 'gallery_slides2'
+            ).innerHTML = slidesHtml;
+            SELF.images.slice(3, 5).forEach(function(image, index) {
+              index++;
+              imageLoad(
+                image,
+                SELF.$el.querySelector(
+                  '.' +
+                    SELF.pod +
+                    'gallery_slides2 .' +
+                    SELF.pod +
+                    'gallery_slide-content:nth-child(' +
+                    index +
+                    ')'
+                ),
+                SELF
+              );
+            });
+          }
+          if (SELF.images.length === 5) {
+            SELF.$el
+              .querySelector('.' + SELF.pod + 'gallery_stage')
+              .insertAdjacentHTML(
+                'afterend',
+                '<article class="' +
+                  SELF.pod +
+                  'gallery_slides ' +
+                  SELF.pod +
+                  'gallery_slides1"></article>' +
+                  '<article class="' +
+                  SELF.pod +
+                  'gallery_slides ' +
+                  SELF.pod +
+                  'gallery_slides2"></article>'
+              );
+
+            slidesHtml = SELF.images
+              .slice(1, 4)
+              .map(function(image, index) {
+                index++;
+                if (index === 3 && SELF.images.length > 4) {
+                  index--;
+                  return templateEngine(viewMoreTemplate, {
+                    index,
+                    count: SELF.images.length - 2,
+                  });
+                }
+                return templateEngine(slideTemplate, { src: image, index });
+              })
+              .join(' ');
+            SELF.$el.querySelector(
+              '.' + SELF.pod + 'gallery_slides1'
+            ).innerHTML = slidesHtml;
+            SELF.images.slice(1, 4).forEach(function(image, index) {
+              index++;
+              imageLoad(
+                image,
+                SELF.$el.querySelector(
+                  '.' +
+                    SELF.pod +
+                    'gallery_slides1 .' +
+                    SELF.pod +
+                    'gallery_slide-content:nth-child(' +
+                    index +
+                    ')'
+                ),
+                SELF
+              );
+            });
+
+            slidesHtml = SELF.images
+              .slice(3, 5)
+              .map(function(image, index) {
+                index = index + 2;
+                index++;
+                return templateEngine(slideTemplate, { src: image, index });
+              })
+              .join('');
+            SELF.$el.querySelector(
+              '.' + SELF.pod + 'gallery_slides2'
+            ).innerHTML = slidesHtml;
+            SELF.images.slice(3, 5).forEach(function(image, index) {
+              index++;
+              imageLoad(
+                image,
+                SELF.$el.querySelector(
+                  '.' +
+                    SELF.pod +
+                    'gallery_slides2 .' +
+                    SELF.pod +
+                    'gallery_slide-content:nth-child(' +
+                    index +
+                    ')'
+                ),
+                SELF
+              );
+            });
+          }
+          if (SELF.images.length === 4) {
+            SELF.$el
+              .querySelector('.' + SELF.pod + 'gallery_stage')
+              .insertAdjacentHTML(
+                'afterend',
+                '<article class="' +
+                  SELF.pod +
+                  'gallery_slides ' +
+                  SELF.pod +
+                  'gallery_slides1"></article>' +
+                  '<article class="' +
+                  SELF.pod +
+                  'gallery_slides ' +
+                  SELF.pod +
+                  'gallery_slides2"></article>'
+              );
+
+            slidesHtml = SELF.images
+              .slice(1, 3)
+              .map(function(image, index) {
+                index++;
+                if (index === 2 && SELF.images.length > 3) {
+                  return templateEngine(viewMoreTemplate, {
+                    index,
+                    count: SELF.images.length - 2,
+                  });
+                }
+                return templateEngine(slideTemplate, { src: image, index });
+              })
+              .join(' ');
+            SELF.$el.querySelector(
+              '.' + SELF.pod + 'gallery_slides1'
+            ).innerHTML = slidesHtml;
+            SELF.images.slice(1, 3).forEach(function(image, index) {
+              index++;
+              imageLoad(
+                image,
+                SELF.$el.querySelector(
+                  '.' +
+                    SELF.pod +
+                    'gallery_slides1 .' +
+                    SELF.pod +
+                    'gallery_slide-content:nth-child(' +
+                    index +
+                    ')'
+                ),
+                SELF
+              );
+            });
+
+            slidesHtml = SELF.images
+              .slice(2, 4)
+              .map(function(image, index) {
+                index = index + 2;
+                return templateEngine(slideTemplate, { src: image, index });
+              })
+              .join('');
+            SELF.$el.querySelector(
+              '.' + SELF.pod + 'gallery_slides2'
+            ).innerHTML = slidesHtml;
+            SELF.images.slice(2, 4).forEach(function(image, index) {
+              index++;
+              imageLoad(
+                image,
+                SELF.$el.querySelector(
+                  '.' +
+                    SELF.pod +
+                    'gallery_slides2 .' +
+                    SELF.pod +
+                    'gallery_slide-content:nth-child(' +
+                    index +
+                    ')'
+                ),
+                SELF
+              );
+            });
+          }
+          if (SELF.images.length === 3) {
+            SELF.$el
+              .querySelector('.' + SELF.pod + 'gallery_stage')
+              .insertAdjacentHTML(
+                'afterend',
+                '<article class="' +
+                  SELF.pod +
+                  'gallery_slides ' +
+                  SELF.pod +
+                  'gallery_slides1"></article>'
+              );
+
+            slidesHtml = SELF.images
+              .slice(1, 3)
+              .map(function(image, index) {
+                index++;
+                return templateEngine(slideTemplate, { src: image, index });
+              })
+              .join(' ');
+            SELF.$el.querySelector(
+              '.' + SELF.pod + 'gallery_slides1'
+            ).innerHTML = slidesHtml;
+            SELF.images.slice(1, 3).forEach(function(image, index) {
+              index++;
+              imageLoad(
+                image,
+                SELF.$el.querySelector(
+                  '.' +
+                    SELF.pod +
+                    'gallery_slides1 .' +
+                    SELF.pod +
+                    'gallery_slide-content:nth-child(' +
+                    index +
+                    ')'
+                ),
+                SELF
+              );
+            });
+          }
+          if (SELF.images.length === 2) {
+            SELF.$el
+              .querySelector('.' + SELF.pod + 'gallery_stage')
+              .insertAdjacentHTML(
+                'afterend',
+                '<article class="' +
+                  SELF.pod +
+                  'gallery_slides ' +
+                  SELF.pod +
+                  'gallery_slides1"></article>'
+              );
+            slidesHtml = SELF.images
+              .slice(1, 2)
+              .map(function(image, index) {
+                index++;
+                return templateEngine(slideTemplate, { src: image, index });
+              })
+              .join(' ');
+            SELF.$el.querySelector(
+              '.' + SELF.pod + 'gallery_slides1'
+            ).innerHTML = slidesHtml;
+            SELF.images.slice(1, 2).forEach(function(image, index) {
+              index++;
+              imageLoad(
+                image,
+                SELF.$el.querySelector(
+                  '.' +
+                    SELF.pod +
+                    'gallery_slides1 .' +
+                    SELF.pod +
+                    'gallery_slide-content:nth-child(' +
+                    index +
+                    ')'
+                ),
+                SELF
+              );
+            });
+          }
+
+          bindEvents(SELF);
+        };
+
+        var init_style = function(SELF) {
+          var style = document.createElement('style');
+          style.type = 'text/css';
+
+          style.innerHTML =
+            `
+                    .` +
+            SELF.pod +
+            `gallery_wrapper {
+                        display: flex;
+                        overflow: hidden;
+                        border: 1px solid #ffffff !important;
+                        background-color: #E8EEEE;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_wrapper > * {
+                        font-size: 16px;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_stage {
+                        width: 100%;
+                        height: 100%;
+                        overflow: hidden;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_stage {
+                        display: flex !important;
+                        overflow: hidden !important;
+                        align-items: center !important;
+                        justify-content: center !important;
+                        vertical-align: middle !important;
+                        position: relative !important;
+                        width: 67%;
+                        height: 294.6666666666667px !important;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_stage-img {
+                        position: absolute !important;
+                        background-size: cover !important;
+                        width: 100% !important;
+                        height: 100% !important;
+                        transform: scale(1) !important;
+                        background-repeat: no-repeat !important;
+                        background-position: center center !important;
+                        transition: all 450ms cubic-bezier(0.645, 0.045, 0.355, 1) 0s !important;
+                        cursor: pointer;
+                        border: 1px solid #ffffff !important;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_stage-img:hover {
+                        transform: scale(1.05) !important;
+                    }
+
+                    #gallery-1 .` +
+            SELF.pod +
+            `gallery_stage {
+                        width: 100% !important;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_slides {
+                        flex_direction: column !important;
+                        position: relative !important;
+                        width: 33% !important;
+                        overflow: hidden !important;
+                        height: 294.6666666666667px !important;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_lides1 {
+                        display: block;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_slides2 {
+                        display: none;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_slide-content {
+                        display: flex !important;
+                        overflow: hidden !important;
+                        align-items: center !important;
+                        justify-content: center !important;
+                        vertical-align: middle !important;
+                        position: relative !important;
+                        height: 50% !important;
+                        border: 1px solid #ffffff !important;
+                    }
+
+                    #gallery-4 .` +
+            SELF.pod +
+            `gallery_slides1 .` +
+            SELF.pod +
+            `gallery_slide-content {
+                        height: 50% !important;
+                    }
+
+                    #gallery-2 .` +
+            SELF.pod +
+            `gallery_slides .` +
+            SELF.pod +
+            `gallery_slide-content {
+                        height: 100% !important;
+                    }
+
+                    #gallery-more .` +
+            SELF.pod +
+            `gallery_slides1 .` +
+            SELF.pod +
+            `gallery_slide-content:nth-child(2),
+                    #gallery-5 .` +
+            SELF.pod +
+            `gallery_slides1 .` +
+            SELF.pod +
+            `gallery_slide-content:nth-child(2) {
+                        display: none !important;
+                    }
+
+                    #gallery-more .` +
+            SELF.pod +
+            `gallery_slides1 .` +
+            SELF.pod +
+            `gallery_slide-content:nth-child(3),
+                    #gallery-5 .` +
+            SELF.pod +
+            `gallery_slides1 .` +
+            SELF.pod +
+            `gallery_slide-content:nth-child(3),
+                    #gallery-4 .` +
+            SELF.pod +
+            `gallery_slides1 .` +
+            SELF.pod +
+            `gallery_slide-content:nth-child(2) {
+                        display: block !important;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_slide-img {
+                        position: absolute !important;
+                        background-size: cover !important;
+                        width: 100% !important;
+                        height: 100% !important;
+                        transform: scale(1) !important;
+                        background-repeat: no-repeat !important;
+                        background-position: center center !important;
+                        transition: all 450ms cubic-bezier(0.645, 0.045, 0.355, 1) 0s !important;
+                        cursor: pointer;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_slide-img:hover {
+                        transform: scale(1.05) !important;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_modal-content {
+                        background: rgb(255, 255, 255) !important;
+                        position: fixed !important;
+                        top: 100vh !important;
+                        right: 0px !important;
+                        bottom: 0px !important;
+                        left: 0px !important;
+                        z-index: 2;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_modal-wrapper {
+                        position: fixed;
+                        z-index: 2000;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                        background-color: rgba(0, 0, 0, 0.85);
+                        display: flex;
+                        flex-direction: column;
+                        user-select: none;
+                        -webkit-user-select: none;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_hide {
+                        display: none;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_modal-header {
+                        position: relative;
+                        background-color: #000000;
+                        padding: 0;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_modal-header h4 {
+                        display: block;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_close-btn {
+                        position: absolute;
+                        padding: 0;
+                        right: 16px;
+                        top: 16px;
+                        z-index: 1;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_close-btn button {
+                        background-color: transparent;
+                        border: none;
+                        padding: 0;
+                        cursor: pointer;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_modal-body {
+                        width: 100% !important;
+                        margin: 0px auto !important;
+                        position: relative;
+                        overflow: hidden;
+                        height: 80vh;
+                        display: flex;
+                        align-items: center;
+                        padding: 0 20px;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_modal-image-wrapper {
+                        width: 100%;
+                        max-width: 105vh;
+                        margin: 0 auto;
+                        display: flex;
+                        overflow: hidden;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_modal-img {
+                        object-fit: fill;
+                        width: 100%;
+                        max-width: 105vh;
+                        height: 100%;
+                        background-size: cover !important;
+                        z-index: 1 !important;
+                        transform: translateX(0px) scale(1);
+                        opacity: 0.01;
+                        background-repeat: no-repeat !important;
+                        background-position: center center !important;
+                        transition: opacity 180ms ease-out 0s, transform 150ms ease-out 0s;
+                        border-radius: 3px;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_modal-slide-img {
+                        object-fit: fill;
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 5px;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_prev {
+                        display: flex;
+                        cursor: pointer !important;
+                        position: absolute !important;
+                        top: 50% !important;
+                        transform: translateY(-50%);
+                        z-index: 100 !important;
+                        font-size: 0.5em !important;
+                        left: 25px !important;
+                        background: none !important;
+                        border-width: 0px !important;
+                        border-style: initial !important;
+                        border-color: initial !important;
+                        border-image: initial !important;
+                        align-items: center;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_next {
+                        display: flex;
+                        cursor: pointer !important;
+                        position: absolute !important;
+                        top: 50% !important;
+                        transform: translateY(-50%);
+                        z-index: 100 !important;
+                        font-size: 0.5em !important;
+                        right: 25px !important;
+                        background: none !important;
+                        border-width: 0px !important;
+                        border-style: initial !important;
+                        border-color: initial !important;
+                        border-image: initial !important;
+                        align-items: center;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_slide-img:hover {
+                        transform: scale(1.1);
+                        transition: -ms-transform 450ms cubic-bezier(0.645, 0.045, 0.355, 1) 0s,
+                        -webkit-transform 450ms cubic-bezier(0.645, 0.045, 0.355, 1) 0s,
+                        transform 450ms cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_modal-footer {
+                        position: relative;
+                        overflow: hidden;
+                        width: 100% !important;
+                        padding: 0 20px;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_modal-slide-info {
+                        color: white;
+                        display: none;
+                        max-width: 105vh;
+                        margin: 0 auto;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_modal-slides {
+                        -webkit-overflow-scrolling: touch;
+                        position: relative;
+                        display: block;
+                        white-space: nowrap;
+                        padding: 0;
+                        transition: -ms-transform 0.3s ease-out 0s, -webkit-transform 0.3s ease-out 0s,
+                        transform 0.3s ease-out 0s !important;
+                        max-width: 105vh;
+                        overflow-x: auto;
+                        margin: 15px auto;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_modal-slides::-webkit-scrollbar {
+                        width: 0;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_modal-slide {
+                        width: 100px;
+                        overflow: hidden;
+                        display: inline-flex;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_modal-slide:hover {
+                        cursor: pointer;
+                        opacity: 1;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_active {
+                        opacity: 1 !important;
+                        position: relative;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_active img {
+                        border: 1px solid white;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_view-more {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        text-align: center;
+                        height: 100%;
+                        cursor: pointer;
+                        background-color: #EBF0F0;
+                    }
+
+                    .` +
+            SELF.pod +
+            `gallery_view-more:hover {
+                        transform: none;
+                    }
+
+                    @media (min-width: 1200px) {
+                        .` +
+            SELF.pod +
+            `gallery_slides {
+                            width: 25% !important;
+                        }
+                    }
+
+                    @media (min-width: 1128px) {
+                        .` +
+            SELF.pod +
+            `gallery_prev, .` +
+            SELF.pod +
+            `gallery_next {
+                            font-size: medium !important;
+                        }
+                    }
+
+                    @media (min-height: 700px) {
+                        .` +
+            SELF.pod +
+            `gallery_stage {
+                            height:294.6666666666667px !important;
+                        }
+                    }
+
+                    @media (min-height: 850px) {
+                        .` +
+            SELF.pod +
+            `gallery_stage {
+                            height:394.6666666666667px !important;
+                        }
+                    }
+
+                    @media (min-height: 1000px) {
+                        .` +
+            SELF.pod +
+            `gallery_stage {
+                            height:494.6666666666667px !important;
+                        }
+                    }
+
+                    @media (min-width: 744px) {
+                        @media (min-height: 700px) {
+                            .` +
+            SELF.pod +
+            `gallery_stage {
+                                height:353.6px !important;
+                            }
+                        }
+
+                        @media (min-height: 850px) {
+                            .` +
+            SELF.pod +
+            `gallery_stage {
+                                height:473.6px !important;
+                            }
+                        }
+
+                        @media (min-height: 1000px) {
+                            .` +
+            SELF.pod +
+            `gallery_stage {
+                                height:593.6px !important;
+                            }
+                        }
+                    }
+
+                    @media (min-width: 800px) {
+                        .` +
+            SELF.pod +
+            `gallery_stage {
+                            width:50% !important;
+                        }
+
+                        @media (min-height: 700px) {
+                            .` +
+            SELF.pod +
+            `gallery_stage {
+                                height:442px !important;
+                            }
+                        }
+
+                        @media (min-height: 850px) {
+                            .` +
+            SELF.pod +
+            `gallery_stage {
+                                height:592px !important;
+                            }
+                        }
+
+                        @media (min-height: 1000px) {
+                            .stage {
+                                height:742px !important;
+                            }
+                        }
+                    }
+
+                    @media (min-height: 700px) {
+                        .` +
+            SELF.pod +
+            `gallery_slides {
+                            height:294.6666666666667px !important;
+                        }
+                    }
+
+                    @media (min-height: 850px) {
+                        .` +
+            SELF.pod +
+            `gallery_slides {
+                            height:394.6666666666667px !important;
+                        }
+                    }
+
+                    @media (min-height: 1000px) {
+                        .` +
+            SELF.pod +
+            `gallery_slides {
+                            height:494.6666666666667px !important;
+                        }
+                    }
+
+                    @media (min-width: 744px) {
+                        @media (min-height: 700px) {
+                            .` +
+            SELF.pod +
+            `gallery_slides {
+                                height:353.6px !important;
+                            }
+                        }
+
+                        @media (min-height: 850px) {
+                            .` +
+            SELF.pod +
+            `gallery_slides {
+                                height:473.6px !important;
+                            }
+                        }
+
+                        @media (min-height: 1000px) {
+                            .` +
+            SELF.pod +
+            `gallery_slides {
+                                height:593.6px !important;
+                            }
+                        }
+                    }
+
+                    @media (min-width: 800px) {
+                        .` +
+            SELF.pod +
+            `gallery_slides {
+                            width: 25% !important;
+                        }
+
+                        @media (min-height: 700px) {
+                            .` +
+            SELF.pod +
+            `gallery_slides {
+                                height:442px !important;
+                            }
+                        }
+
+                        @media (min-height: 850px) {
+                            .` +
+            SELF.pod +
+            `gallery_slides {
+                                height:592px !important;
+                            }
+                        }
+
+                        @media (min-height: 1000px) {
+                            .` +
+            SELF.pod +
+            `gallery_slides {
+                                height:742px !important;
+                            }
+                        }
+                    }
+
+                    @media (min-width: 800px) {
+                        #gallery-more .` +
+            SELF.pod +
+            `gallery_slides1 .` +
+            SELF.pod +
+            `gallery_slide-content:nth-child(2),
+                        #gallery-5 .` +
+            SELF.pod +
+            `gallery_slides1 .` +
+            SELF.pod +
+            `gallery_slide-content:nth-child(2){
+                            display: block !important;
+                        }
+
+                        #gallery-more .` +
+            SELF.pod +
+            `gallery_slides1 .` +
+            SELF.pod +
+            `gallery_slide-content:nth-child(3),
+                        #gallery-5 .` +
+            SELF.pod +
+            `gallery_slides1 .` +
+            SELF.pod +
+            `gallery_slide-content:nth-child(3),
+                        #gallery-4 .` +
+            SELF.pod +
+            `gallery_slides1 .` +
+            SELF.pod +
+            `gallery_slide-content:nth-child(2) {
+                            display: none !important;
+                        }
+
+                        #gallery-4 .` +
+            SELF.pod +
+            `gallery_slides1 .` +
+            SELF.pod +
+            `gallery_slide-content {
+                            height: 100% !important;
+                        }
+
+                        #gallery-3 .` +
+            SELF.pod +
+            `gallery_stage {
+                            width: 60% !important;
+                        }
+
+                        #gallery-3 .` +
+            SELF.pod +
+            `gallery_slides1 {
+                            width: 40% !important;
+                        }
+
+                        #gallery-2 .` +
+            SELF.pod +
+            `gallery_stage {
+                            width: 70% !important;
+                        }
+
+                        #gallery-2 .` +
+            SELF.pod +
+            `gallery_slides {
+                            width: 30% !important;
+                        }
+                        .` +
+            SELF.pod +
+            `gallery_modal-header {
+                            background-color: transparent !important;
+                            padding: 32px;
+                        }
+                        .` +
+            SELF.pod +
+            `gallery_modal-header h4 {
+                            display: none !important;
+                        }
+                        .` +
+            SELF.pod +
+            `gallery_slides2 {
+                            display: block !important;
+                        }
+                        .` +
+            SELF.pod +
+            `gallery_modal-slide {
+                            opacity: 0.5;
+                        }
+                        .` +
+            SELF.pod +
+            `gallery_modal-slide-info {
+                            display: block !important;
+                        }
+                    }`;
+          document.getElementsByTagName('head')[0].appendChild(style);
+        };
+
+        var init_template = function(SELF) {
+          stageImageContentTemplate =
+            `<aside class="` +
+            SELF.pod +
+            `gallery_stage">
+                        <div class="` +
+            SELF.pod +
+            `gallery_stage-img"></div>
+                    </aside>`;
+
+          stageImageTemplate =
+            `<div class="` +
+            SELF.pod +
+            `gallery_stage-img" style="background-image: url({src})" data-index="0"></div>`;
+
+          viewMoreTemplate =
+            `
+                        <div class="` +
+            SELF.pod +
+            `gallery_slide-content">
+                           <div class="` +
+            SELF.pod +
+            `gallery_slide-img ` +
+            SELF.pod +
+            `gallery_view-more" data-index="{index}">View {count} More</div>
+                        </div>`;
+
+          modalTemplate =
+            `<div class="` +
+            SELF.pod +
+            `gallery_modal-content">
+                            <div class="` +
+            SELF.pod +
+            `gallery_modal-wrapper ` +
+            SELF.pod +
+            `gallery_hide">
+                                <div class="` +
+            SELF.pod +
+            `gallery_modal-header">
+                                    <h4 style="color: #ffffff;margin: 14px;">` + SELF.title + `</h4>
+                                    <div class="` +
+            SELF.pod +
+            `gallery_close-btn">
+                                        <button type="button">
+                                            <svg class="` +
+            SELF.pod +
+            `gallery_close-modal" viewBox="0 0 24 24" role="img" aria-label="Close" focusable="false" style="height: 12px; width: 12px; display: block; fill: rgb(255, 255, 255);">
+                                                <path class="` +
+            SELF.pod +
+            `gallery_close-modal" d="m23.25 24c-.19 0-.38-.07-.53-.22l-10.72-10.72-10.72 10.72c-.29.29-.77.29-1.06 0s-.29-.77 0-1.06l10.72-10.72-10.72-10.72c-.29-.29-.29-.77 0-1.06s.77-.29 1.06 0l10.72 10.72 10.72-10.72c.29-.29.77-.29 1.06 0s .29.77 0 1.06l-10.72 10.72 10.72 10.72c.29.29.29.77 0 1.06-.15.15-.34.22-.53.22" fill-rule="evenodd"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="` +
+            SELF.pod +
+            `gallery_modal-body">
+                                    <div class="` +
+            SELF.pod +
+            `gallery_modal-image-wrapper">
+                                        <img class="` +
+            SELF.pod +
+            `gallery_modal-img" src="https://picsum.photos/600/400?image=0"/>
+                                    </div>
+                                    <div class="` +
+            SELF.pod +
+            `gallery_prev">
+                                        <svg class="` +
+            SELF.pod +
+            `gallery_prev-thumb" viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false" style="height: 20px; width: 20px; fill: rgb(255, 255, 255);">
+                                            <path class="` +
+            SELF.pod +
+            `gallery_prev-thumb" d="m13.7 16.29a1 1 0 1 1 -1.42 1.41l-8-8a1 1 0 0 1 0-1.41l8-8a1 1 0 1 1 1.42 1.41l-7.29 7.29z"fill-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="` +
+            SELF.pod +
+            `gallery_next">
+                                        <svg class="` +
+            SELF.pod +
+            `gallery_next-thumb" viewBox="0 0 18 18" role="presentation" aria-hidden="true" focusable="false" style="height: 20px; width: 20px; fill: rgb(255, 255, 255);">
+                                            <path class="` +
+            SELF.pod +
+            `gallery_next-thumb" d="m4.29 1.71a1 1 0 1 1 1.42-1.41l8 8a1 1 0 0 1 0 1.41l-8 8a1 1 0 1 1 -1.42-1.41l7.29-7.29z" fill-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="` +
+            SELF.pod +
+            `gallery_modal-footer">
+                                    <div class="` +
+            SELF.pod +
+            `gallery_modal-slide-info"></div>
+                                    <ul class="` +
+            SELF.pod +
+            `gallery_modal-slides"></ul>
+                                </div>
+                            </div>
+                        </div>`;
+
+          slideTemplate =
+            `<div class="` +
+            SELF.pod +
+            `gallery_slide-content"><div class="` +
+            SELF.pod +
+            `gallery_slide-img" style="background-image: url({src})" data-index="{index}"/></div></div>`;
+
+          modalSlideTemplate =
+            `
+                        <li class="` +
+            SELF.pod +
+            `gallery_modal-slide {className}">
+                            <img class="` +
+            SELF.pod +
+            `gallery_modal-slide-img" src="{src}" data-index={index} />
+                        </li>`;
+
+          modalImageTemplate =
+            `<img class="` +
+            SELF.pod +
+            `gallery_modal-img" src="{src}" style="opacity: 0.01"/>`;
+        };
+
+        return Gallery;
+      })();
+
+      if (typeof module !== 'undefined' && typeof module.exports !== 'undefined')
+        module.exports = Gallery;
+      else window.Gallery = Gallery;
+    })();
